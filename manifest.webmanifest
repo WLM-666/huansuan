@@ -1,0 +1,13 @@
+{
+  "name": "换算一下",
+  "short_name": "单位换算",
+  "description": "轻巧、离线可用的中文单位换算工具",
+  "lang": "zh-CN",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f4f6f2",
+  "theme_color": "#f4f6f2",
+  "icons": [{ "src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }]
+}
+
