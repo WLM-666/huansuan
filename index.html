@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#f4f6f2">
+  <meta name="description" content="轻巧、离线可用的中文单位换算工具。">
+  <title>换算一下</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icon.svg">
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <main class="shell">
+    <header class="topbar">
+      <div class="brand-mark" aria-hidden="true"><span>↔</span></div>
+      <div><p class="eyebrow">随时随地，轻松换算</p><h1>换算一下</h1></div>
+      <span class="offline-tag"><i aria-hidden="true"></i> 离线可用</span>
+    </header>
+
+    <section class="category-section" aria-label="换算类别">
+      <div class="section-label">选择类别</div>
+      <div class="category-list" id="categories" role="tablist" aria-label="单位类别"></div>
+    </section>
+
+    <section class="reader-panel" aria-label="英文单位和照片识别">
+      <div class="section-heading reader-heading"><div><p class="eyebrow">不用先选单位</p><h2>输入文字，自动识别</h2></div><span class="reader-badge">离线识别</span></div>
+      <label class="sr-only" for="natural-input">输入英文单位或完整句子</label>
+      <textarea id="natural-input" rows="2" placeholder="例如：I'm 5'8&quot; tall, and this weighs 150 lbs."></textarea>
+      <div class="reader-actions"><button class="primary-button" id="parse-text" type="button">识别并换算</button><label class="photo-button" for="photo-input">拍照 / 选取照片</label><input id="photo-input" type="file" accept="image/*" capture="environment" hidden></div>
+      <div id="photo-area" class="photo-area" hidden><img id="photo-preview" alt="待识别的照片预览"><p id="photo-status" aria-live="polite"></p></div>
+      <div id="parse-status" class="parse-status" role="status" aria-live="polite"></div>
+      <div id="candidates" class="candidate-list"></div>
+      <div id="unit-info" class="unit-info" hidden></div>
+    </section>
+
+    <section class="converter" aria-label="单位换算">
+      <div class="value-card" id="card-a">
+        <label class="value-label" for="value-a">数值</label>
+        <div class="value-row"><input id="value-a" type="number" inputmode="decimal" step="any" value="1" aria-label="第一个数值"><select id="unit-a" aria-label="第一个单位"></select></div>
+      </div>
+      <button class="swap-button" id="swap" type="button" aria-label="交换两边的单位" title="交换单位">⇅</button>
+      <div class="value-card result-card" id="card-b">
+        <label class="value-label" for="value-b">换算结果</label>
+        <div class="value-row"><input id="value-b" type="number" inputmode="decimal" step="any" value="" aria-label="第二个数值"><select id="unit-b" aria-label="第二个单位"></select></div>
+      </div>
+      <p class="hint" id="hint" aria-live="polite">输入任意一侧，另一侧会即时更新</p>
+    </section>
+
+    <section class="quick-section" aria-label="常用换算">
+      <div class="section-heading"><div><p class="eyebrow">一眼看懂</p><h2>常用换算</h2></div><span class="live-dot" aria-hidden="true">●</span></div>
+      <div class="quick-list" id="quick-list"></div>
+    </section>
+
+    <footer><span>结果按标准换算系数计算</span><span>简洁 · 免费 · 无需联网</span></footer>
+  </main>
+  <noscript>请启用 JavaScript 才能使用换算功能。</noscript>
+</body>
+</html>
+
